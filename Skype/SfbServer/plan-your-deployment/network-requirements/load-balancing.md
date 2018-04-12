@@ -123,21 +123,21 @@ Following are the hardware load balancer requirements for Director and Front End
    
 ### Port Monitoring for Hardware Load Balancers
 
-You define port monitoring on the hardware load balancers to determine when specific services are no longer available due to hardware or communications failure. For example, if the Front End Server service (RTCSRV) stops because the Front End Server or Front End pool fails, the HLB monitoring should also stop receiving traffic on the Web Services. You implement port monitoring on the HLB to monitor the following:
+You define port monitoring on the hardware load balancers to determine when specific services are no longer available due to hardware or communications failure. For example, if the Front End Server service (RTCSRV) stops because the Front End Server or Front End pool fails, the HLB monitoring should also stop receiving traffic on the Web Services. Specific port used to monitor health can be defined in the topology. Once hardware load balancer monitoring port has been enabled in the topology, you may implement port monitoring on the HLB to monitor the following:
   
 **Front End Server User Pool - HLB Internal Interface**
 
 |**Virtual IP/Port**|**Node Port**|**Node Machine/Monitor**|**Persistence Profile**|**Notes**|
 |:-----|:-----|:-----|:-----|:-----|
-|\<pool\>web-int_mco_443_vs  <br/> 443  <br/> |443  <br/> |Front End  <br/> 5061  <br/> |Source  <br/> |HTTPS  <br/> |
-|\<pool\>web-int_mco_80_vs  <br/> 80  <br/> |80  <br/> |Front End  <br/> 5061  <br/> |Source  <br/> |HTTP  <br/> |
+|\<pool\>web-int_mco_443_vs  <br/> 443  <br/> |443  <br/> |Front End  <br/> 5060 (default) <br/> |Source  <br/> |HTTPS  <br/> |
+|\<pool\>web-int_mco_80_vs  <br/> 80  <br/> |80  <br/> |Front End  <br/> 5060 (default)  <br/> |Source  <br/> |HTTP  <br/> |
    
 **Front End Server User Pool - HLB External Interface**
 
 |**Virtual IP/Port**|**Node Port**|**Node Machine/Monitor**|**Persistence Profile**|**Notes**|
 |:-----|:-----|:-----|:-----|:-----|
-|\<pool\>web_mco_443_vs  <br/> 443  <br/> |4443  <br/> |Front End  <br/> 5061  <br/> |None  <br/> |HTTPS  <br/> |
-|\<pool\>web_mco_80_vs  <br/> 80  <br/> |8080  <br/> |Front End  <br/> 5061  <br/> |None  <br/> |HTTP  <br/> |
+|\<pool\>web_mco_443_vs  <br/> 443  <br/> |4443  <br/> |Front End  <br/> 5060 (default) <br/> |None  <br/> |HTTPS  <br/> |
+|\<pool\>web_mco_80_vs  <br/> 80  <br/> |8080  <br/> |Front End  <br/> 5060 (default) <br/> |None  <br/> |HTTP  <br/> |
    
 ## DNS Load Balancing
 <a name="BKMK_DNSLoadBalancing"> </a>
